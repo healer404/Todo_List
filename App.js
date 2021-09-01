@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import {KeyboardAvoidingView, TouchableOpacity, StyleSheet, Text, TextInput, View, Keyboard} from 'react-native';
 import Task from "./component/Task";
@@ -20,6 +19,7 @@ export default function App() {
         setTask(null);
     }
 
+    // remover of the task
     const completeTask = (index) => {
         // Copy of the list of tasks
         let itemsCopy = [...taskItems];
@@ -118,8 +118,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#C0C0C0',
     borderWidth: 1,
-  },
-  addText: {
-
   },
 });
