@@ -6,6 +6,18 @@ export default function App() {
   return (
     <View style={styles.container}>
 
+      {/*Today's Task*/}
+      <View style={styles.tasksWrapper}>
+        {/*Header Title*/}
+        <Text style={styles.sectionTitle}>Today's Task</Text>
+
+        {/*Tasks Conteiner*/}
+        <View style={styles.items}>
+
+        </View>
+
+      </View>
+
     </View>
   );
 }
@@ -13,6 +25,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#E8EAED'
+  },
+  tasksWrapper: {
+    paddingTop: 80,
+    paddingHorizontal: 20,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  items: {
+
   },
 });
