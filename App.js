@@ -4,11 +4,19 @@ import {KeyboardAvoidingView, TouchableOpacity, StyleSheet, Text, TextInput, Vie
 import Task from "./component/Task";
 
 export default function App() {
-
+    // getting the value to be sent
     const [task, setTask] = useState();
 
+    // saving the task send into the array of tasks
+    const [taskItems, setTaskItems] = useState([]);
+
+    // sent task handler function
     const  handleAddTask = () => {
         console.log(task);
+        // Save the value of the task sent to the array
+        setTaskItems([...taskItems, task]);
+        // set the sent task handler to null
+        setTask(null);
     }
 
   return (
@@ -21,8 +29,11 @@ export default function App() {
 
         {/*Tasks Container*/}
         <View style={styles.items}>
-          <Task text={"Hello, This is task 1."}></Task>
-          <Task text={"Hi, This is task 2."}></Task>
+            {
+                taskItems.map((item, index) => {
+                  return <Task key={index} text={item}/>
+                })
+            }
         </View>
 
       </View>
