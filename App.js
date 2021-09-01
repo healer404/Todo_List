@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import {KeyboardAvoidingView, TouchableOpacity, StyleSheet, Text, TextInput, View} from 'react-native';
+import {KeyboardAvoidingView, TouchableOpacity, StyleSheet, Text, TextInput, View, Keyboard} from 'react-native';
 import Task from "./component/Task";
 
 export default function App() {
@@ -20,6 +20,16 @@ export default function App() {
         setTask(null);
     }
 
+    const completeTask = (index) => {
+        // Copy of the list of tasks
+        let itemsCopy = [...taskItems];
+        // Remove the task with the corresponding index (index of the task, the number of data to be removed)
+        itemsCopy.splice(index, 1);
+
+        // Update the list of tasks
+        setTaskItems(itemsCopy);
+    }
+
   return (
     <View style={styles.container}>
 
@@ -32,7 +42,11 @@ export default function App() {
         <View style={styles.items}>
             {
                 taskItems.map((item, index) => {
-                  return <Task key={index} text={item}/>
+                  return (
+                      <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                          <Task text={item}/>
+                      </TouchableOpacity>
+                      )
                 })
             }
         </View>
