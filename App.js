@@ -12,7 +12,8 @@ export default function App() {
 
     // sent task handler function
     const  handleAddTask = () => {
-        console.log(task);
+        // Keyboard will be dismissed after sending the task
+        Keyboard.dismiss();
         // Save the value of the task sent to the array
         setTaskItems([...taskItems, task]);
         // set the sent task handler to null
